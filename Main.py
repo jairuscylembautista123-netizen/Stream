@@ -17,4 +17,4 @@ async def on_ready():
     )
 
 # Use your Account Token here (NOT a bot token)
-client.run("YOUR_ACCOUNT_TOKEN")
+client.run("MTQxOTE5Nzc0NTk2NDY1MDQ5OA.GEb7BE.d5hITN3zg2-85IQK2w_Sg8RJV2CbnCoMKDMbUE")
