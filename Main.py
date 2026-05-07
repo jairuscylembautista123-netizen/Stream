@@ -1,16 +1,20 @@
 import discord
 from discord.ext import commands
 
-intents = discord.Intents.default()
-bot = commands.Bot(command_prefix='!', intents=intents)
+# You'll need to install: pip install discord.py-self
+client = commands.Bot(command_prefix='.', self_bot=True)
 
-@bot.event
+@client.event
 async def on_ready():
-    # This is the "Streaming" activity that turns the status purple
-    await bot.change_presence(activity=discord.Streaming(
-        name="Custom Status Text Here", 
-        url="https://www.twitch.tv/directory"
-    ))
-    print(f'Logged in as {bot.user.name} and set purple status!')
+    print(f'Connected to: {client.user}')
+    
+    # This triggers the purple "Streaming" status
+    await client.change_presence(
+        activity=discord.Streaming(
+            name="Your Custom Text Here", 
+            url="https://www.twitch.tv/discord"
+        )
+    )
 
-bot.run('YOUR_TOKEN_HERE')
+# Use your Account Token here (NOT a bot token)
+client.run("YOUR_ACCOUNT_TOKEN")
