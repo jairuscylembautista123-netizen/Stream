@@ -1,13 +1,16 @@
-
+import discord
 from discord.ext import commands
-import os
 
-client = commands.Bot(command_prefix="!", self_bot=True)
+intents = discord.Intents.default()
+bot = commands.Bot(command_prefix='!', intents=intents)
 
-@client.event
+@bot.event
 async def on_ready():
-    # This is the "Smart Analysis" bypass to turn you purple!
-    await client.change_presence(activity=discord.Streaming(name="GRINDING XIALITY_SMP 🗿", url="https://twitch.tv/xiality"))
-    print(f"STATUS: PURPLE_MAXXING | USER: {client.user}")
+    # This is the "Streaming" activity that turns the status purple
+    await bot.change_presence(activity=discord.Streaming(
+        name="Custom Status Text Here", 
+        url="https://www.twitch.tv/directory"
+    ))
+    print(f'Logged in as {bot.user.name} and set purple status!')
 
-client.run(os.getenv("TOKEN"), bot=False)
+bot.run('YOUR_TOKEN_HERE')
